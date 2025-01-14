@@ -16,14 +16,13 @@ pause_button_image = PhotoImage(file='pause.png')
 next_button_image = PhotoImage(file='next.png')
 previous_button_image = PhotoImage(file='previous.png')
 
-
 control_frame = Frame(root)
 control_frame.pack()
 
 play_button = Button(control_frame, image=play_button_image, borderwidth=0, command=lambda: play(root))
 pause_button = Button(control_frame, image=pause_button_image, borderwidth=0, command=pause)
-next_button = Button(control_frame, image=next_button_image, borderwidth=0, command=lambda: next_song(songlist))
-previous_button = Button(control_frame, image=previous_button_image, borderwidth=0, command=lambda: previous_song(songlist))
+next_button = Button(control_frame, image=next_button_image, borderwidth=0, command=lambda: next_song(root,songlist))
+previous_button = Button(control_frame, image=previous_button_image, borderwidth=0, command=lambda: previous_song(root, songlist))
 
 play_button.grid(row=0, column=1, padx=7, pady=10)
 pause_button.grid(row=0, column=2, padx=7, pady=10)

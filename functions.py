@@ -38,7 +38,7 @@ def pause():
     pygame.mixer.music.pause()
     paused = True
 
-def next_song(songlist):
+def next_song(root, songlist):
     global current_song, paused
     current_song_index = songs.index(current_song)
 
@@ -46,9 +46,10 @@ def next_song(songlist):
         current_song = songs[current_song_index + 1]
         songlist.selection_clear(0, END)
         songlist.selection_set(current_song_index + 1)
-        play()
+        paused = False
+        play(root)
 
-def previous_song(songlist):
+def previous_song(root, songlist):
     global current_song, paused
     current_song_index = songs.index(current_song)
 
@@ -56,4 +57,5 @@ def previous_song(songlist):
         current_song = songs[current_song_index - 1]
         songlist.selection_clear(0, END)
         songlist.selection_set(current_song_index - 1)
-        play()
+        paused = False
+        play(root)
